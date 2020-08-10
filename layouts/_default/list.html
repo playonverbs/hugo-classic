@@ -7,6 +7,7 @@
 
   {{ .Content }}
 
+  {{if (or (eq .Section "posts")  .IsHome)}}
   <ul>
      {{ $pages := .Site.RegularPages }}
      {{ if .IsHome }}{{ $pages := .Site.RegularPages }}{{ end }}
@@ -17,5 +18,10 @@
      </li>
      {{ end }}
    </ul>
+  {{ end }}
+
+  {{ if eq .Section "photos"}}
+    
+  {{ end }}
 </div>
 {{ partial "footer.html" . }}
